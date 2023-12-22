@@ -10,6 +10,9 @@ license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/aaronriekenberg/rust-parallel"
 
+[features]
+# use Windows Command Prompt (aka cmd.exe) as the default shell
+win_cmd_shell = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
