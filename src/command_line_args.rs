@@ -117,10 +117,16 @@ impl CommandLineArgs {
     }
 
     fn default_shell() -> &'static str {
-        if cfg!(target_os = "windows") && cfg!(feature = "win_cmd_shell") {
-            "cmd"
-        } else {
+        if cfg!(target_os = "windows") {
+            if cfg!(feature = "win_cmd_shell") {
+                "cmd"
+            } else {
+                "bash"
+            }
+        } else if cfg!(unix) {
             "/bin/bash"
+        } else {
+            unreachable!()
         }
     }
 }
