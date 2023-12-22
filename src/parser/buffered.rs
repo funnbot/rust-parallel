@@ -1,4 +1,5 @@
 use itertools::Itertools;
+use shlex::split;
 
 use crate::{
     command_line_args::CommandLineArgs,
@@ -40,7 +41,7 @@ impl BufferedInputLineParser {
     pub fn parse_line(&self, input_line: &str) -> Option<OwnedCommandAndArgs> {
         let cmd_and_args = if !self.regex_processor.regex_mode() {
             let mut cmd_and_args = if self.split_whitespace {
-                input_line.split_whitespace().map_into().collect()
+                split(input_line).unwrap()
             } else {
                 vec![input_line.into()]
             };
