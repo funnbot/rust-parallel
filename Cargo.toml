@@ -28,6 +28,7 @@ tokio = { version = "1", features = ["full"] }
 tracing = "0.1"
 tracing-subscriber = "0.3"
 which = "5"
+shlex = "1.2"
 
 [dev-dependencies]
 assert_cmd = "2"
