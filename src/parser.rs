@@ -25,12 +25,10 @@ impl ShellCommandAndArgs {
     }
 
     fn shell_argument() -> &'static str {
-        if cfg!(unix) {
-            "-c"
-        } else if cfg!(windows) {
+        if cfg!(target_os = "windows") && cfg!(feature = "win_cmd_shell") {
             "/c"
         } else {
-            unreachable!()
+            "-c"
         }
     }
 }
